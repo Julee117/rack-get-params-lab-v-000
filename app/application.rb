@@ -26,7 +26,7 @@ class Application
   def app(env)
     resp = Rack::Response.new
     req = Rack::Request.new(env)
-    
+
     if req.path.match(/cart/)
       @@cart.each do |cart_item|
         resp.write "#{cart_item}\n"
