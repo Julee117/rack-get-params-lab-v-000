@@ -20,7 +20,7 @@ class Application
         @@cart.each do |cart_item|
           resp.write "#{cart_item}\n"
         end
-      else 
+      else
         resp.write "Your cart is empty"
     else
       resp.write "Path Not Found"
