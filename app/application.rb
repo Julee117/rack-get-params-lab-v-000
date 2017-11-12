@@ -16,6 +16,12 @@ class Application
       search_term = req.params["q"]
       resp.write handle_search(search_term)
       end
+    elsif req.path.match(/cart/)
+      @@cart.each do |cart_item|
+        resp.write "#{cart_item}\n"
+      end
+    elsif !req.path.match(/cart/)
+      resp.write "Your cart is empty\n"
     else
       resp.write "Path Not Found"
     end
@@ -27,10 +33,7 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-    if req.path.match(/cart/)
-      @@cart.each do |cart_item|
-        resp.write "#{cart_item}\n"
-      end
+    if 
     else
       resp.write "Your cart is empty\n"
     end
