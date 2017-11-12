@@ -1,6 +1,8 @@
 class Application
 
   @@items = ["Apples","Carrots","Pears"]
+  @@cart = ["Apples", "Bananas", "Cereal"]
+  
 
   def call(env)
     resp = Rack::Response.new
